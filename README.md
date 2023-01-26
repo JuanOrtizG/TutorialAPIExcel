@@ -30,3 +30,19 @@ los rangos tienen tres propiedades principales: Valores, Formulas y formato.
   - Obtener y establecer valores de las celdas
   - evaluar las fórmulas 
   - formato visual de las celdas.
+
+
+```JS
+function main(workbook: ExcelScript.Workbook) {
+// Datos que cargaremos,3 filas y 3 columnas...
+let data = [
+	[1,2,3],
+	[4,5,6],
+	[7,8,9]
+];
+
+// Accedemos al workbook y a la hoja actual, obtenemos el rango y guardamos los datos en dicho rango.
+workbook.getActiveWorksheet().getRange('a1:c3').setValues(data);
+
+}
+```
