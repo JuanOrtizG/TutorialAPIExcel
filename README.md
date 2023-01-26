@@ -22,3 +22,9 @@ Los rangos se utilizan para crear y colocar tablas, gráficos, formas y otros ob
 ```c
 workbook.worksheet.getRange('A1').value
 ```
+# Rangos
+Un rango es un grupo de celdas contiguas en el libo de trabajo. Para obtener un rango se suele usar la notacion A1: que es usar numeros para las filas y letras para las columnas.
+los rangos tienen tres propiedades principales: Valores, Formulas y formato. 
+  - Obtener y establecer valores de las celdas
+  - evaluar las fórmulas 
+  - formato visual de las celdas.
