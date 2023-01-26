@@ -23,6 +23,8 @@ Los rangos se utilizan para crear y colocar tablas, gráficos, formas y otros ob
 workbook.worksheet.getRange('A1').value
 ```
 # Rangos
+![image](https://www.aulaclic.es/estadistica-excel/graficos/Fig-1-2.png)
+![image](https://cdn.exceltotal.com/wp-content/uploads/2013/02/celdas-y-rangos-en-excel-2013-01.png)
 Un rango es un grupo de celdas contiguas en el libo de trabajo. Para obtener un rango se suele usar la notacion A1: que es usar numeros para las filas y letras para las columnas.
 los rangos tienen tres propiedades principales: Valores, Formulas y formato. 
   - Obtener y establecer valores de las celdas
