@@ -44,5 +44,13 @@ let data = [
 // Accedemos al workbook y a la hoja actual, obtenemos el rango y guardamos los datos en dicho rango.
 workbook.getActiveWorksheet().getRange('a1:c3').setValues(data);
 
+//Para cambiar el formato, accedamos en cascada hasta el rango
+//workbook.hoja.rango
+//en rango podemos acceder a los metodos de formato, cambiaremos el color del relleno.
+//...rango.formato.relleno.color.cyan
+
+	workbook.getActiveWorksheet().getRange('a1:c3').getFormat().getFill().setColor('Cyan');
+
+
 }
 ```
