@@ -9,7 +9,16 @@ API common: introducida con Office 2013, la API common se puede usar para accede
 ![image](https://user-images.githubusercontent.com/12565341/214921918-58bd1df5-98c1-4948-8470-82f76d0e28e3.png)
 
 # Modelo de objetos de Excel
+Si imaginamos una casa y queremos utilizar un cuchillo, no podemos utilizarlo directamente, debemos ingresar a la casa, ingresar a la cocina, luego ingresar al armario, y abrir el cajón de cubiertos, y ahí obtenemos el cuchillo, no hay forma de obtenerlo directamente. 
+en Excel hacemos lo mismo, debemos ingresar primero a la aplicación que será el libro de trabajo, luego debemos seleccionar una hoja, luego debemos elegir un rango y posteriormente podemos acceder a  una celda especificia: 
+```js
+LibroDeTrabajo.Hoja.Rango.Celda
+```
+ 
 Un libro de trabajo *workbook* contiene una o más hojas de trabajo *worksheet*.
 Un worksheet contiene colecciones de objetos de datos que están presentes en la hoja individual y da acceso a las celdas a través  de objetos de rango.
 Un rango *range* representa un grupo de celdas contiguas. 
 Los rangos se utilizan para crear y colocar tablas, gráficos, formas y otros objetos de organización o visualización de datos. 
+```c
+workbook.worksheet.getRange('A1').value
+```
