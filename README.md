@@ -34,24 +34,40 @@ los rangos tienen tres propiedades principales: Valores, Formulas y formato.
 
 ```JS
 function main(workbook: ExcelScript.Workbook) {
-// Datos que cargaremos,3 filas y 3 columnas...
+
+
+
+// Preparamos los datos que almacenaremos en las celdas, en este caso sera una matriz 3x3, es decir 3 filas y 3 columnas...
 let data = [
-	[1,2,3],
-	[4,5,6],
-	[7,8,9]
+	[1,2,3],        //fila 1
+	[4,5,6],				//fila 2
+	[7,8,9]					//fila 3
 ];
 
-// Accedemos al workbook y a la hoja actual, obtenemos el rango y guardamos los datos en dicho rango.
+
+// Vamos en cascada para acceder a las celdas y empezamos desde nuestro libro de trabajo (workbook), luego la hoja(worksheet), el rango y guardamos los datos.
 workbook.getActiveWorksheet().getRange('a1:c3').setValues(data);
 
-/** Para cambiar el formato, accedamos en cascada hasta el rango
-workbook.hoja.rango
-en rango podemos acceder a los metodos de formato, cambiaremos el color del relleno.
-...rango.formato.relleno.color.cyan
-*/
 
-workbook.getActiveWorksheet().getRange('a1:c3').getFormat().getFill().setColor('Cyan');
+//Para cambiar el formato(como se ve nuestros datos), accedamos en cascada hasta el rango: workbook.hoja.rango.
+//En rango podemos acceder a los metodos de formato, cambiaremos el color del relleno: libro.hoja.rango.formato.relleno.color.cyan
+	workbook.getActiveWorksheet().getRange('a1:c3').getFormat().getFill().setColor('Cyan');
 
+
+// Seleccionaremos el rango a4:c4, es decir las celdas a4,b4 y c4; y pondremos alli formulas de suma de sus columnas
+//primeramente creamos en una variable para guardar las formulas que usaremos
+let formulas = [	
+	['=sum(a1:a3)','=sum(b1:b3)','=sum(c1:c3)']
+];
+
+
+// vamos en cascada hasta poder obtener el rango y accedemos a las formulas. 
+workbook.getActiveWorksheet().getRange('a4:c4').setFormulas(formulas);
+
+
+//La fuente la pondremos en NEGRITA para resaltar la operacion:
+//De nuevo, vamos en cascada hasta el rango y accedemos al formato, vamos a letras(getFont) y seleccionamos negrita(setBold)
+workbook.getActiveWorksheet().getRange('a4:c4').getFormat().getFont().setBold(true);
 
 }
 ```
